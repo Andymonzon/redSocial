@@ -21,6 +21,10 @@ io.on("connection", (socket) => {
     socket.on('deleted', (data) => {
         io.emit('deleted', data)
     })
+
+    socket.on('updated', (data) => {
+        io.emit('updated', data)
+    })
 })
 
 connectDb()

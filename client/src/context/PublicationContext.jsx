@@ -13,7 +13,9 @@ export const PublicationContextProvider = ({ children }) => {
         likePublication,
         deletePublication,
         socket,
-        dispatch
+        dispatch,
+        updatePublication,
+        getOnlyPublication
     } = usePublication()
 
     return (
@@ -25,7 +27,9 @@ export const PublicationContextProvider = ({ children }) => {
             likePublication,
             deletePublication,
             socket,
-            dispatch
+            dispatch,
+            updatePublication,
+            getOnlyPublication
         }}>
             {children}
         </PublicationContext.Provider>

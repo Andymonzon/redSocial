@@ -1,12 +1,12 @@
+import { Profile } from "../components/Profile"
 import { PublicationHome } from "../components/PublicationHome"
 
 const Home = () => {
 
     return (
-        <main className="container mx-auto flex justify-center">
-            <div className="w-3/4">
-                <PublicationHome />
-            </div>
+        <main className="container mx-auto grid grid-cols-5 justify-items-center gap-4">
+            <Profile />
+            <PublicationHome />
         </main>
     )
 }

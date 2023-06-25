@@ -3,6 +3,7 @@ import { useOpenMenu } from '../hooks/useOpenMenu';
 import { useLikePublication } from '../hooks/useLikePublication';
 import { useDeletePublication } from '../hooks/useDeletePublication';
 import { useAuth } from '../hooks/useAuthContext';
+import { useUpdatePublication } from '../hooks/useUpdatePublication';
 
 const CardPublication = ({ publication }) => {
 
@@ -10,6 +11,11 @@ const CardPublication = ({ publication }) => {
     const { handleLike, isLiked } = useLikePublication(publication)
     const { handleDelete } = useDeletePublication(publication)
     const { user } = useAuth()
+    const { eventEdit } = useUpdatePublication(publication)
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     return (
         <div className='flex flex-col bg-zinc-800 rounded-xl p-4 gap-3 w-full'>
@@ -27,7 +33,10 @@ const CardPublication = ({ publication }) => {
                                 {
                                     open &&
                                     <div className='flex flex-col bg-zinc-700 absolute right-0 rounded-xl top-8 p-2 items-start gap-2'>
-                                        <button className='hover:text-zinc-300'>editar</button>
+                                        <button onClick={() => {
+                                            eventEdit()
+                                            scrollToTop()
+                                        }} className='hover:text-zinc-300'>editar</button>
                                         <button onClick={handleDelete} className='hover:text-zinc-300'>eliminar</button>
                                     </div>
                                 }

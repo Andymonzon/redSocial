@@ -13,6 +13,7 @@ function App() {
       <Route element={<ProtectedAuth />}>
         <Route element={<Layout />} >
           <Route index element={<Home />} />
+          <Route path='/:id' element={<Home />} />
         </Route>
       </Route>
       <Route path='/register' element={<Register />} />

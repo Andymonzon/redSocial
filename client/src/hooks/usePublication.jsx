@@ -3,6 +3,8 @@ import {
     postPublicationRequest,
     likePublicationRequest,
     deletePublicationRequest,
+    updatePublicationRequest,
+    getOnlyPublicationRequest
 } from '../api/publication';
 import { useReducer } from 'react';
 import io from 'socket.io-client';
@@ -27,8 +29,18 @@ export const usePublication = () => {
                     }
                     return publication;
                 })
-            case 'DELETE': 
+            case 'DELETE':
                 return state.filter((publication) => publication._id !== action.payload)
+            case 'UPDATED':
+                return state.map((publication) => {
+                    if (publication._id === action.payload._id) {
+                        return {
+                            ...publication,
+                            publication: action.payload.publication,
+                        };
+                    }
+                    return publication;
+                });
             default:
                 return state;
         }
@@ -72,6 +84,23 @@ export const usePublication = () => {
         }
     }
 
+    const updatePublication = async (publicationId, publication) => {
+        try {
+            const res = await updatePublicationRequest(publicationId, publication)
+            socket.emit('updated', res.data.publicationUpdated)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getOnlyPublication = async (publicationId) => {
+        try {
+            return await getOnlyPublicationRequest(publicationId)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return {
         getPublication,
         createPublication,
@@ -79,6 +108,8 @@ export const usePublication = () => {
         dispatch,
         likePublication,
         deletePublication,
+        updatePublication,
         socket,
+        getOnlyPublication,
     }
 }

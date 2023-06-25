@@ -18,7 +18,7 @@ const PublicationHome = () => {
     }, [])
 
     return (
-        <section className='flex flex-col'>
+        <section className='flex flex-col col-span-4 w-full'>
             <div className='flex gap-4 bg-zinc-800 p-4 rounded-xl'>
                 <FormPublication />
             </div>
