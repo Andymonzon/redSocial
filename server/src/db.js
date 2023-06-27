@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+import {URL_MONGODB} from './config.js'
 
 export const connectDb = async () => {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/mundidb')
+        await mongoose.connect(URL_MONGODB)
         console.log('Conexion exitosa')
     } catch (error) {
         console.log(error)
