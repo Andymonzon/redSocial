@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
-import { ProfileMenu } from './ProfileMenu';
+import { useAuth } from '../hooks/useAuthContext';
+// import { ProfileMenu } from './ProfileMenu';
 
 const Navbar = () => {
 
+    const { logout } = useAuth()
 
+    const handleLogout = () => {
+        logout()
+    }
 
     return (
         <header>
@@ -14,12 +19,16 @@ const Navbar = () => {
 
                 <nav className='flex gap-1'>
                     <ul className='flex gap-1'>
-                        <li className='px-2 py-1 font-bold text-sm hover:text-cyan-500 duration-200'>
+                        <li className='px-2 py-1 font-bold text-sm hover:text-zinc-400 duration-200'>
                             <Link to='/'><i className="fa-solid fa-house"></i></Link>
                         </li>
                     </ul>
 
-                    <ProfileMenu />
+                    {/* <ProfileMenu /> */}
+
+                    <div>
+                        <a className='hover:text-zinc-400 duration-200' onClick={handleLogout} href='/login'>Logout</a>
+                    </div>
                 </nav>
             </div>
         </header>

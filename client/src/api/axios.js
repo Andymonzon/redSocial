@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const PORT_SERVER = import.meta.env.VITE_PORT_SERVER
+
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/api',
+    baseURL: PORT_SERVER,
     withCredentials: true,
 })
 

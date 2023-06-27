@@ -4,10 +4,10 @@ import { PublicationHome } from "../components/PublicationHome"
 const Home = () => {
 
     return (
-        <main className="container mx-auto grid grid-cols-5 justify-items-center gap-4">
+        <div className="container mx-auto grid grid-cols-5 justify-items-center gap-4">
             <Profile />
             <PublicationHome />
-        </main>
+        </div>
     )
 }
 

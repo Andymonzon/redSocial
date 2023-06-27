@@ -1,5 +1,4 @@
 import Publication from "../models/publications.models.js"
-import User from '../models/user.model.js'
 
 export const getPublications = async (req, res) => {
     try {

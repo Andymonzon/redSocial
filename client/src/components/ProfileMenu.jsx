@@ -1,4 +1,3 @@
-import { useEffect, useState, useRef } from 'react';
 import { useAuth } from '../hooks/useAuthContext';
 import { useOpenMenu } from '../hooks/useOpenMenu';
 

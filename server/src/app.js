@@ -2,6 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import cookieParser from "cookie-parser"
 import cors from "cors"
+import {PORT_CLIENT} from './config.js'
 
 import authRoutes from "./routes/auth.routes.js"
 import publicationRoutes from "./routes/publication.routes.js"
@@ -13,7 +14,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: PORT_CLIENT,
         credentials: true,
     })
 )

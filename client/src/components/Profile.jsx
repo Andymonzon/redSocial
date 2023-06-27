@@ -6,7 +6,7 @@ const Profile = () => {
     const {user} = useAuth()
 
     return (
-        <section className="col-span-1 bg-zinc-800 w-full rounded-xl h-full max-h-full p-5">
+        <section className="col-span-1 bg-zinc-800 w-full rounded-xl h-full max-h-[190px] p-5">
             <div className='flex flex-col items-center gap-2'>
                 <div className='relative'>
                     <img src={

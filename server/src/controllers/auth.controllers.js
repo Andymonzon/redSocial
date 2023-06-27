@@ -30,7 +30,6 @@ export const authRegister = async (req, res) => {
             id: saveUser._id,
             username: saveUser.username,
             email: saveUser.email,
-            img: userFound.userImage,
         })
     } catch (error) {
         return res.status(400).json({ message: error.message })
@@ -56,7 +55,6 @@ export const authLogin = async (req, res) => {
             id: userFound._id,
             username: userFound.username,
             email: userFound.email,
-            img: userFound.userImage,
         })
     } catch (error) {
         return res.status(400).json({ message: error.message })
